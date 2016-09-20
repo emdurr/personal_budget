@@ -34,17 +34,6 @@ class Bill extends Component {
 		})
 	}
 
-	addBill() {
-		$.ajax({
-			url: '/api/bills',
-			type: 'POST',
-			dataType: 'JSON',
-			data: {}
-		}).done( movie => {
-			console.log(movie);
-		})
-	}
-
 	render() {
 		let { name, amount, category, due_date, due_range } = this.state.bill;
 		return(

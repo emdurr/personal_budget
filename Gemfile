@@ -15,6 +15,7 @@ gem 'webpack-rails-react'
 group :development, :test do
 	gem 'pry'
 	gem 'faker'
+	gem 'annotate'
 end
 
 group :development do

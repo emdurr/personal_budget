@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "dev_server": "./node_modules/.bin/webpack-dev-server --config config/webpack.config.js",
-    "build": "webpack --config=config/webpack.config.js -p"
+    "build": "webpack --config=config/webpack.config.js -p",
+    "start": "webpack --progress -p --config webpack.config.js --watch"
   },
   "dependencies": {
     "react-router": "^2.4.1",

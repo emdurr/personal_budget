@@ -1,11 +1,11 @@
 class Api::BillsController < ApplicationController
-	before_action :set_bill, execpt: [:index, :create]
 
 	def index
 		render json: Bill.all
 	end
 
 	def show
+		@bill = Bill.find(params[:id])
 		render json: @bill
 	end
 
@@ -19,6 +19,7 @@ class Api::BillsController < ApplicationController
 	end
 
 	def update
+		@bill = Bill.new(params[:id])
 		if @bill.update(bill_params)
 			render json: @bill
 		else
@@ -27,15 +28,12 @@ class Api::BillsController < ApplicationController
 	end
 
 	def destroy
+		@bill = Bill.new(params[:id])
 		@bill.destroy
 		render json: { message: "Deleted!" }
 	end
 
 	private
-		def set_bill
-			@bill = Bill.find(params[:id])
-		end
-
 		def bill_params
 			params.require(:bill).permit(:name, :due_date, :due_range, :category, :amount)
 		end
